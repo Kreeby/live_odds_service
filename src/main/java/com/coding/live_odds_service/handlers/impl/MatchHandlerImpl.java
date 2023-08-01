@@ -20,17 +20,12 @@ public class MatchHandlerImpl implements MatchHandler {
     }
 
     @Override
-    public void startNewMatch(Team homeTeam, Team awayTeam) {
-
+    public Match startNewMatch(Team homeTeam, Team awayTeam) {
+        return null;
     }
 
     @Override
-    public void updateScore(Match match, int homeScore, int awayScore) {
-
-    }
-
-    @Override
-    public Match getCurrentMatchInProgress() {
+    public Match updateScore(Match match, int homeScore, int awayScore) {
         return null;
     }
 
