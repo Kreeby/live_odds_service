@@ -11,8 +11,6 @@ public interface MatchHandler {
     Match startNewMatch(Team homeTeam, Team awayTeam);
     Match updateScore(Match match, int homeScore, int awayScore);
 
-    Match getCurrentMatchInProgress();
-
     void finishMatch(Match matchInProgress);
 
     List<Summary> getMatchSummaries();

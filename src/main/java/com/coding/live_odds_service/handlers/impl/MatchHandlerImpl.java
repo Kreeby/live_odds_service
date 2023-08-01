@@ -30,11 +30,6 @@ public class MatchHandlerImpl implements MatchHandler {
     }
 
     @Override
-    public Match getCurrentMatchInProgress() {
-        return null;
-    }
-
-    @Override
     public void finishMatch(Match matchInProgress) {
 
     }
