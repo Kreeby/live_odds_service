@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface MatchHandler {
 
-    void startNewMatch(Team homeTeam, Team awayTeam);
-    void updateScore(Match match, int homeScore, int awayScore);
+    Match startNewMatch(Team homeTeam, Team awayTeam);
+    Match updateScore(Match match, int homeScore, int awayScore);
 
     Match getCurrentMatchInProgress();
 
