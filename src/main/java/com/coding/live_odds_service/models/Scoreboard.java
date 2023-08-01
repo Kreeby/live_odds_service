@@ -14,11 +14,15 @@ public class Scoreboard {
 
     List<Match> matchesInProgress;
 
+    public Scoreboard(List<Match> matchesInProgress) {
+        this.matchesInProgress = matchesInProgress;
+    }
 
     public void addMatchesInProgress(Match match) {
-
+        matchesInProgress.add(match);
     }
 
     public void removeMatchInProgress(Match match) {
+        matchesInProgress.remove(match);
     }
 }

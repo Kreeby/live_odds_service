@@ -79,15 +79,15 @@ public class MatchHandlerTest {
         Team awayTeam2 = new Team();
 
 
-        Match match = new Match(homeTeam, awayTeam, LocalDateTime.of(2022, 10, 11, 12, 30));
+        Match match = new Match(homeTeam, awayTeam, LocalDateTime.of(2022, 10, 11, 12, 30), false);
         matchHandler.startNewMatch(match.getHomeTeam(), match.getAwayTeam());
         matchHandler.updateScore(match, 1, 0);
 
-        Match match1 = new Match(homeTeam1, awayTeam1, LocalDateTime.of(2022, 10, 11, 13, 30));
+        Match match1 = new Match(homeTeam1, awayTeam1, LocalDateTime.of(2022, 10, 11, 13, 30), false);
         matchHandler.startNewMatch(match1.getHomeTeam(), match1.getAwayTeam());
         matchHandler.updateScore(match1, 2, 2);
 
-        Match match2 = new Match(homeTeam2, awayTeam2, LocalDateTime.of(2022, 10, 11, 14, 30));
+        Match match2 = new Match(homeTeam2, awayTeam2, LocalDateTime.of(2022, 10, 11, 14, 30), false);
         matchHandler.startNewMatch(match2.getHomeTeam(), match2.getAwayTeam());
         matchHandler.updateScore(match2, 3, 1);
 
@@ -111,13 +111,13 @@ public class MatchHandlerTest {
         Team homeTeam = new Team();
         Team awayTeam = new Team();
 
-        Match match = new Match(homeTeam, awayTeam, Mockito.any());
+        Match match = new Match(homeTeam, awayTeam, Mockito.any(), true);
         matchHandler.startNewMatch(match.getHomeTeam(), match.getAwayTeam());
         matchHandler.finishMatch(match);
 
         int homeScore = 2;
         int awayScore = 1;
-        matchHandler.updateScore(match, homeScore, awayScore);
+        assertThrows(IllegalStateException.class, () -> matchHandler.updateScore(match, homeScore, awayScore));
 
         assertEquals(0, match.getHomeTeam().getScore());
         assertEquals(0, match.getAwayTeam().getScore());
